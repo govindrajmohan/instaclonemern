@@ -28,7 +28,7 @@ const Followers = () => {
 
     const getFollowers = async (event) => {
         try{
-            await axios.get("http://localhost:8080/followers",
+            await axios.get("http://localhost:8080/api/followers",
              {
                 headers: {
                   
@@ -55,7 +55,7 @@ const Followers = () => {
       const handleUnFollow =async (id,fullName,email)=>{
    
         try{
-          await axios.put("http://localhost:8080/removefollowers",
+          await axios.put("http://localhost:8080/api/removefollowers",
            
               {
                 followId:id,

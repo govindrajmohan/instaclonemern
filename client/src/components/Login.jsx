@@ -21,7 +21,7 @@ function Login() {
   
     event.preventDefault();
     try {
-        await axios.post("http://localhost:8080/login", {
+        await axios.post("http://localhost:8080/api/login", {
           
           email: email,
           password: password,

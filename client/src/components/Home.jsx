@@ -75,7 +75,7 @@ const searchUser=()=>{
 
   const userList = async (event) => {
     try {
-      await axios.post("http://localhost:8080/userdetails",{
+      await axios.post("http://localhost:8080/api/userdetails",{
         email:localStorage.getItem("currentuser"),
       }).then((res) => {
         // if()
@@ -90,7 +90,7 @@ const searchUser=()=>{
   const handleFollow =async (id,fullName,email)=>{
    
     try{
-      await axios.put("http://localhost:8080/follow",
+      await axios.put("http://localhost:8080/api/follow",
        
           {
             followId:id,
@@ -126,7 +126,7 @@ const searchUser=()=>{
   const handleUnFollow =async (id,fullName,email)=>{
    
     try{
-      await axios.put("http://localhost:8080/unfollow",
+      await axios.put("http://localhost:8080/api/unfollow",
        
           {
             followId:id,

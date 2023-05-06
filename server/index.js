@@ -2,15 +2,15 @@ const express = require("express"),
 app = express(),
 mongoose = require("mongoose"),
 userRoutes = require("./routes/user");
-const dotenv = require('dotenv');
 // const {MONGOURI} = require('./config/keys')
+const dotenv = require('dotenv');
 dotenv.config();
 var cors = require('cors')
 app.use(cors());
 
 // Connect to database mongoose atlas online/realtime
 try {
-mongoose.connect("mongodb+srv://govindmohan144:N2FnLgTBeDmuDSwG@clusterinstaclone.eruplhp.mongodb.net/?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGOURI, {
 useUnifiedTopology: true,
 useNewUrlParser: true
 });
@@ -32,7 +32,9 @@ extended: true
 //using user route
 app.use("/api",userRoutes);
 //setup server to listen on port 8080
-app.listen(process.env.PORT|| 8080, () => {
+
+
+app.listen(process.env.PORT || 8080, () => {
 console.log("Server is live on port 8080");
 })
 
